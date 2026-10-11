@@ -1,0 +1,20 @@
+app: anyship-demo-team-picker
+source:
+  repo: https://github.com/jaedong29/anyship-demo-team-picker
+build:
+  dockerfile: Dockerfile
+  runtime_hint: python3.12
+port: 8080
+healthcheck: /healthz
+ingress: public
+env: []
+backing_services: []
+workload:
+  type: request-driven
+  scale_to_zero: true
+  max_request_seconds: 10
+  websocket: false
+processes:
+  web:
+    instances: 1
+profile: dev

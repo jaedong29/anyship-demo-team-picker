@@ -1,0 +1,302 @@
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --text: #1c2430;
+  --muted: #5b6676;
+  --line: #dde2e9;
+  --accent: #2f6fdf;
+  --accent-text: #ffffff;
+  --accent-soft: #e8f0fd;
+  --danger: #b42318;
+  --danger-soft: #fdecea;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 4px 16px rgba(16, 24, 40, 0.06);
+  --tone-0: #2f6fdf;
+  --tone-1: #1a9a6c;
+  --tone-2: #d9822b;
+  --tone-3: #8b5cf6;
+  --tone-4: #d6456b;
+  --tone-5: #0e8fa6;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12161c;
+    --surface: #1b2129;
+    --text: #e8ecf1;
+    --muted: #9aa5b4;
+    --line: #2d3540;
+    --accent: #6c9cf0;
+    --accent-text: #0d1420;
+    --accent-soft: #1f2d44;
+    --danger: #ff8a7f;
+    --danger-soft: #3a1f1d;
+    --shadow: none;
+    --tone-0: #6c9cf0;
+    --tone-1: #4cc495;
+    --tone-2: #eba15a;
+    --tone-3: #a98bfa;
+    --tone-4: #ef7a98;
+    --tone-5: #45bdd2;
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", system-ui, sans-serif;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 16px 40px;
+}
+
+.intro h1 {
+  margin: 0 0 6px;
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+}
+
+.intro p {
+  margin: 0 0 20px;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+label {
+  font-weight: 600;
+}
+
+.count {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+textarea,
+select {
+  width: 100%;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 180px;
+}
+
+textarea:focus,
+select:focus,
+.button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+textarea[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.options {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.team-field {
+  width: 140px;
+}
+
+.error {
+  margin: 16px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--danger-soft);
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.button {
+  font: inherit;
+  font-weight: 600;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.button:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+.button.subtle {
+  background: transparent;
+  color: var(--muted);
+}
+
+.result {
+  margin-top: 28px;
+  scroll-margin-top: 16px;
+}
+
+.result-head h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.result-head p {
+  margin: 2px 0 14px;
+  color: var(--muted);
+}
+
+.teams {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 12px;
+}
+
+.team {
+  --tone: var(--tone-0);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--tone);
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+}
+
+.tone-1 { --tone: var(--tone-1); }
+.tone-2 { --tone: var(--tone-2); }
+.tone-3 { --tone: var(--tone-3); }
+.tone-4 { --tone: var(--tone-4); }
+.tone-5 { --tone: var(--tone-5); }
+
+.team-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.team-head h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--tone);
+}
+
+.team-size {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.members {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.members li {
+  padding: 4px 0;
+  border-top: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+
+.members li:first-child {
+  border-top: 0;
+}
+
+.footer {
+  margin-top: 32px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding-top: 20px;
+  }
+
+  .intro h1 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .options {
+    flex-wrap: wrap;
+  }
+
+  .team-field {
+    flex: 1 1 140px;
+  }
+
+  .actions .button {
+    flex: 1 1 100%;
+  }
+}
