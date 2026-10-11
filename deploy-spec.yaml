@@ -1,7 +1,7 @@
-app: app-2b536f6a6038426c8d21
+app: app-ef9197b82e2e4d349072
 source:
   repo: https://github.com/jaedong29/anyship-demo-team-picker
-  commit: bb2744540cbbd82e924ff3542f1f453a1ea8e877
+  commit: 747c9eea35fd83350506d5f759ad380d0861b6e7
 build:
   dockerfile: Dockerfile
   runtime_hint: python3.12
